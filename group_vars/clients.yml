@@ -10,7 +10,7 @@ add_packages:
   - zsh-autosuggestions
   - zsh-syntax-highlighting
   - bash-completion
-  - mlocate
+  - plocate
   
 remove_packages:
   - htop

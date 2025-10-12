@@ -1,0 +1,46 @@
+---
+- name: install/update software on systems
+  hosts: servers
+  become: true
+
+  tasks:
+    - name: add software packages
+      ansible.builtin.package:
+        name: "{{ add_packages }}"
+        state: latest
+
+    - name: remove software packages
+      ansible.builtin.package:
+        name: "{{ remove_packages }}"
+        state: absent
+
+    - name: system upgrade - dnf
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+        update_cache: true
+      notify: 
+        - reboot
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: system upgrade - apt
+      ansible.builtin.apt:
+        upgrade: dist
+        update_cache: true
+        autoclean: true
+        autoremove: true
+      notify: 
+        - reboot
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: system upgrade - pacman
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+      notify: 
+        - reboot
+      when: ansible_facts['os_family'] == "Archlinux"
+
+  handlers:
+    - name: reboot
+      ansible.builtin.reboot:

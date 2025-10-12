@@ -2,18 +2,15 @@ all:
   children:
     servers:
       hosts:
-        benson.ankersen.dev:
+        mordecai.lab.ankersen.dev:
+        rigby.lab.ankersen.dev:
+        pops.lab.ankersen.dev:
     clients:
       children:
         pi_os:
         fedora:
           hosts:
             e420.ankersen.dev:
-            putney.ankersen.dev:
         arch:
           hosts:
-            x220.ankersen.dev:
-    vm_hosts:
-      hosts:
-        porter.ankersen.dev:
-        bitter.ankersen.dev:
+            x230.ankersen.dev:

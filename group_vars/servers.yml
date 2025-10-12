@@ -9,16 +9,13 @@ add_packages:
   - zsh
   - zsh-autosuggestions
   - zsh-syntax-highlighting
-  - qemu-kvm-core
-  - libvirt
-  - virt-install
+  - bash-completion
   - cockpit
   - cockpit-machines
-  - cockpit-pcp
-  - guestfs-tools
+  - cockpit-podman
   - nfs-utils
-  - tuned
-  - mlocate
+  - plocate
+  - NetworkManager-tui
   
 remove_packages:
   - htop
