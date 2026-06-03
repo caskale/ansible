@@ -10,11 +10,15 @@ add_packages:
   - zsh-autosuggestions
   - zsh-syntax-highlighting
   - bash-completion
+  - cockpit
+  - cockpit-podman
+  - nfs-utils
   - plocate
-  
+  - NetworkManager-tui
+
 remove_packages:
   - htop
+  - bpytop
 
 users:
   - troy
-

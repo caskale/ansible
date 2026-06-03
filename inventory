@@ -1,16 +1,25 @@
 all:
   children:
     servers:
-      hosts:
-        mordecai.lab.ankersen.dev:
-        rigby.lab.ankersen.dev:
-        pops.lab.ankersen.dev:
+      children:
+        debian:
+          hosts:
+        redhat:    
+          hosts:
+            mordecai.ankersen.dev:
+        archlinux:
+          hosts:
     clients:
       children:
-        pi_os:
-        fedora:
+        debian:
           hosts:
-            e420.ankersen.dev:
-        arch:
+        redhat:
           hosts:
-            x230.ankersen.dev:
+        archlinux:
+          hosts:
+            #putney.ankersen.dev:
+    openshift:
+      hosts:
+        porter.ankersen.dev:
+        stout.ankersen.dev:
+        bitter.ankersen.dev:

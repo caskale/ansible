@@ -1,25 +1,16 @@
 ---
 add_packages:
-  - lm_sensors
-  - podman
-  - bpytop
-  - nano
-  - vim
+  - lm-sensors
   - micro
   - zsh
   - zsh-autosuggestions
   - zsh-syntax-highlighting
   - bash-completion
-  - cockpit
-  - cockpit-machines
-  - cockpit-podman
-  - nfs-utils
   - plocate
-  - NetworkManager-tui
   
 remove_packages:
   - htop
+  - bpytop
 
 users:
   - troy
-
