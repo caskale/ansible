@@ -1,5 +1,5 @@
 ---
-- name: install/update software on systems
+- name: Install/update software on systems
   hosts: servers
   become: true
 

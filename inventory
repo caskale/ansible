@@ -17,9 +17,11 @@ all:
           hosts:
         archlinux:
           hosts:
-            #putney.ankersen.dev:
     openshift:
       hosts:
         porter.ankersen.dev:
         stout.ankersen.dev:
         bitter.ankersen.dev:
+  hosts:
+    localhost:
+      ansible_connection: local
