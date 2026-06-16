@@ -7,7 +7,7 @@
     - name: Add Software Packages
       ansible.builtin.package:
         name: "{{ add_packages }}"
-        state: latest
+        state: present
 
     - name: Remove Software Packages
       ansible.builtin.package:
@@ -19,6 +19,7 @@
         name: '*'
         state: latest
         update_cache: true
+        update_only: true
       notify:
         - Reboot
       when: ansible_facts['os_family'] == "RedHat"

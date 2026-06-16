@@ -1,10 +1,15 @@
 ---
-- name: modify the cpufreq values for openshift nodes
+- name: Modify the cpufreq values for openshift nodes
   hosts: openshift
   become: true
 
   tasks:
-    - name: set cpufreq scaling governor to powersave and disable boost
-      ansible.builtin.shell: |
-        echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-        echo 0 | tee /sys/devices/system/cpu/cpu*/cpufreq/boost
+    - name: Set cpufreq scaling governor to powersave and disable boost
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+          echo 0 | tee /sys/devices/system/cpu/cpu*/cpufreq/boost
+        executable: /bin/bash
+      register: cmd_output
+      changed_when: cmd_output.rc != 0
