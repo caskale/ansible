@@ -9,6 +9,7 @@ all:
             mordecai.ankersen.dev:
         archlinux:
           hosts:
+            archlinux-cloud.ankersen.dev
     clients:
       children:
         debian:
